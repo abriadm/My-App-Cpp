@@ -7,8 +7,19 @@ using std::cout;
 using std::cin;
 using std::endl;
 
+void print_array(int array[], int count)
+{
+	cout << "Your Guesses is: " << endl;
+	for (int i = 0; i < count; i++)
+	{
+		cout << (i + 1) << ". {" << array[i] << "}" << endl;
+	}
+	cout << endl;
+}
 void play_game()
 {
+	int guesses[20];
+	int guess_count = 0;
 	int random = rand() % 11;
 	int guess;
 
@@ -18,10 +29,11 @@ void play_game()
 	{
 		cout << "Guess a number range 1-10: ";
 		cin >> guess;
+		guesses[guess_count++] = guess;
 
 		if (guess == random)
 		{
-			cout << "You Win!!!" << endl;
+			cout << "You Win!!!\n" << endl;
 			break;
 		}
 		else if(guess < random)
@@ -33,6 +45,7 @@ void play_game()
 			cout << "Too high!!!" << endl;
 		}
 	}
+	print_array(guesses, guess_count);
 }
 
 int main()
