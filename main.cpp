@@ -6,6 +6,7 @@
 using std::cout;
 using std::cin;
 using std::endl;
+using std::string;
 
 void print_array(int array[], int count)
 {
