@@ -2,25 +2,26 @@
 #include <cstdlib>
 #include <string>
 #include <ctime>
+#include <vector>
 
 using std::cout;
 using std::cin;
 using std::endl;
 using std::string;
+using std::vector;
 
-void print_array(int array[], int count)
+void print_vector(vector<int> vector)
 {
 	cout << "Your Guesses is: " << endl;
-	for (int i = 0; i < count; i++)
+	for (int i = 0; i < vector.size(); i++)
 	{
-		cout << (i + 1) << ". {" << array[i] << "}" << endl;
+		cout << (i + 1) << ". {" << vector[i] << "}" << endl;
 	}
 	cout << endl;
 }
 void play_game()
 {
-	int guesses[20];
-	int guess_count = 0;
+	vector<int> guesses;
 	int random = rand() % 11;
 	int guess;
 
@@ -30,7 +31,7 @@ void play_game()
 	{
 		cout << "Guess a number range 1-10: ";
 		cin >> guess;
-		guesses[guess_count++] = guess;
+		guesses.push_back(guess);
 
 		if (guess == random)
 		{
@@ -46,7 +47,7 @@ void play_game()
 			cout << "Too high!!!" << endl;
 		}
 	}
-	print_array(guesses, guess_count);
+	print_vector(guesses);
 }
 
 int main()
